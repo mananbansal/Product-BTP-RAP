@@ -1,0 +1,112 @@
+unmanaged;
+//strict ( 2 );
+
+define behavior for ZG2I_PG_ORDER
+implementation in class zbp_g2i_pg_order unique
+//late numbering
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field ( readonly ) OrderId, CompanyCode, OrderDate, OrderStatus, Currency, OrderAmount;
+//  field ( readonly : update ) PaymentMethod;
+
+  mapping for zg2_pg_order
+  {
+    OrderId = order_id;
+    EmployeeId = employee_id;
+    CompanyCode = company_code;
+    OrderDate = order_date;
+    OrderStatus = order_status;
+    Currency = currency;
+    OrderAmount = order_amount;
+    PaymentMethod = payment_method;
+    OrderNote = order_note;
+    LocalLastChanged = local_last_changed;
+    LastChanged = last_changed;
+    CreatedOn = created_on;
+    CreationUser = creation_user;
+    ChangedUser = changed_user;
+  }
+
+  association _dtl { create; }
+  association _prd { create; }
+
+  action(features : instance) Change_Status_Submitted result [1] $self;
+  action(features : instance) Change_Status_Approved result [1] $self;
+  action(features : instance) Change_Status_Rejected result [1] $self;
+
+
+}
+
+define behavior for ZG2I_PG_ORDERDTL //alias <alias_name>
+implementation in class zbp_g2i_pg_orderdtl unique
+//late numbering
+lock dependent by _ord
+authorization dependent by _ord
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) OrderId, Unit;
+  field ( mandatory ) ProductId;
+
+  mapping for zg2_pg_orderdtl
+  {
+    OrderId = order_id;
+    ProductId = product_id;
+    Unit = unit;
+    OrderedQuantity = ordered_quantity;
+    DeliveryAddress = delivery_address;
+    DeliveryCity = delivery_city;
+    DeliveryPincode = delivery_pincode;
+    DeliveryState = delivery_state;
+    DeliveryCountry = delivery_country;
+    DeliveryDate = delivery_date;
+    DeliveredDate = delivered_date;
+    LocalLastChanged = local_last_changed;
+    LastChanged = last_changed;
+    CreatedOn = created_on;
+    CreationUser = creation_user;
+    ChangedUser = changed_user;
+  }
+
+  association _ord;
+}
+
+define behavior for ZG2I_PG_ORDPRD //alias <alias_name>
+implementation in class zbp_g2i_pg_ordprd unique
+//late numbering
+lock dependent by _ord
+authorization dependent by _ord
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) OrderId, ProductCategory, ProductBrand, ProductType, ProductModel, ProductName, ProductDescription, Currency, UnitPrice;
+  field ( mandatory ) ProductId;
+
+  mapping for zg2_pg_ordprd
+  {
+    OrderId = order_id;
+    ProductId = product_id;
+    ProductName = product_name;
+    ProductDescription = product_description;
+    ProductCategory = product_category;
+    ProductType = product_type;
+    ProductBrand = product_brand;
+    ProductModel = product_model;
+    Currency = currency;
+    UnitPrice = unit_price;
+    LocalLastChanged = local_last_changed;
+    LastChanged = last_changed;
+    CreatedOn = created_on;
+    CreationUser = creation_user;
+    ChangedUser = changed_user;
+  }
+
+  association _ord;
+}

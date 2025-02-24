@@ -1,0 +1,94 @@
+@Metadata.layer: #CORE
+@UI:{ 
+    headerInfo :{ 
+        typeName: 'order',
+        typeNamePlural: 'Orders',
+        title:{ 
+            type: #STANDARD,
+            label: 'Order',
+            value: 'OrderId'
+        }
+    }
+}
+//@Search.searchable: true
+annotate view ZG2C_PG_ORDER
+    with 
+{
+    @UI.facet: [{ 
+    id : 'Order',
+    purpose: #STANDARD,
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Order Info',
+    position: 10
+ },
+ { 
+    id : 'Ordprd',
+    type : #LINEITEM_REFERENCE,
+    label : 'Order Product Info',
+    position : 20,
+    targetElement: '_prd'
+ },
+ { 
+    id : 'Orddtl',
+    type : #LINEITEM_REFERENCE,
+    label : 'Order detail Info',
+    position : 30,
+    targetElement: '_dtl'
+ }]
+    @UI.identification: [{ position: 10 , importance: #HIGH }]
+    @UI :{lineItem: [{ position: 10 , importance: #HIGH},
+              {  type: #FOR_ACTION, dataAction: 'Change_Status_Submitted', label: 'Submit' },
+              {  type: #FOR_ACTION, dataAction: 'Change_Status_Approved', label: 'Approve'  },
+              {  type: #FOR_ACTION, dataAction: 'Change_Status_Rejected', label: 'Reject'  } ]}
+    @UI:{selectionField: [{ position : 10}]}
+    @EndUserText.label : 'Order Id'
+//    @Search.defaultSearchElement: true
+    OrderId;
+ 
+    @UI.identification: [{ position: 20 , importance: #HIGH }]
+    @UI :{lineItem: [{ position: 20 , importance: #HIGH }]}
+    @UI:{selectionField: [{ position : 20 }]}
+    @EndUserText.label : 'Employee Id'
+    @Consumption.valueHelpDefinition: [{ entity:{name: 'ZG2I_PG_EMPLOYEE', element: 'EmployeeCode' } } ]
+    EmployeeId;
+    
+    @UI.identification: [{ position: 30 , importance: #HIGH }]
+    @UI :{lineItem: [{ position: 30 , importance: #HIGH }]}
+    @EndUserText.label : 'Company Code'
+    CompanyCode;
+    
+    @UI.identification: [{ position: 40 , importance: #HIGH  }]
+    @UI :{lineItem: [{ position: 40 , importance: #HIGH }]}
+    @EndUserText.label : 'Order Date'
+    OrderDate;
+    
+    @UI.identification: [{ position: 50 , importance: #HIGH }]
+    @UI :{lineItem: [{ position: 50 , importance: #HIGH }]}
+    @UI:{selectionField: [{ position : 1}]}
+    @EndUserText.label : 'Order Status'
+    @Consumption.valueHelpDefinition: [{ entity:{name: 'ZG2I_PG_ORDERSTATUS', element: 'Value' } } ]
+    OrderStatus;  
+    
+    @UI.identification: [{ position: 60 , importance: #HIGH  }]
+    @UI :{lineItem: [{ position: 60 , importance: #HIGH }]}
+    @EndUserText.label : 'Currency'
+    @Consumption.valueHelpDefinition: [{ entity : { name : 'I_Currency' , element : 'Currency'} }]
+    Currency;  
+        
+    @UI.identification: [{ position: 70 , importance: #HIGH  }]
+    @UI :{lineItem: [{ position: 70 , importance: #HIGH }]}
+    @EndUserText.label : 'Order Amount'
+    OrderAmount;
+    
+    @UI.identification: [{ position: 80 , importance: #HIGH  }]
+    @UI :{lineItem: [{ position: 80 , importance: #HIGH }]}
+    @EndUserText.label : 'Payment Method'
+    @Consumption.valueHelpDefinition: [{ entity:{name: 'ZG2I_PG_PAYMENTMETHOD', element: 'Value' } } ]
+    PaymentMethod;
+    
+    @UI.identification: [{ position: 90 , importance: #HIGH  }]
+    @UI :{lineItem: [{ position: 90 , importance: #HIGH }]}
+    @EndUserText.label : 'Order Note'
+    OrderNote;
+    
+}

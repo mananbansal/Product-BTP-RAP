@@ -1,0 +1,65 @@
+@Metadata.layer: #CORE
+annotate view ZG2C_PG_EMPLOYEE
+    with 
+{
+    @UI.facet: [{ 
+    id : 'Employee',
+    purpose: #STANDARD,
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Employee Info',
+    position: 10
+ }]
+    @UI.identification: [{ position: 10 , importance: #HIGH }]
+    @UI :{lineItem: [{ position: 10 , importance: #HIGH}]}
+    @UI:{selectionField: [{ position : 10 }]}
+    @EndUserText.label : 'Company Code'
+    CompanyCode;
+ 
+    @UI.identification: [{ position: 20 , importance: #HIGH }]
+    @UI :{lineItem: [{ position: 20 , importance: #HIGH }]}
+    @UI:{selectionField: [{ position : 20 }]}
+    @EndUserText.label : 'Employee Code'
+    EmployeeCode;
+    
+    @UI.identification: [{ position: 30 , importance: #HIGH }]
+    @UI :{lineItem: [{ position: 30 , importance: #HIGH }]}
+    @UI:{selectionField: [{ position : 30 }]}
+    @EndUserText.label : 'Organization Code'
+    OrgCode;
+    
+    @UI.identification: [{ position: 40 , importance: #HIGH  }]
+    @UI :{lineItem: [{ position: 40 , importance: #HIGH }]}
+    @EndUserText.label : 'Employee Name'
+    EmployeeName;
+    
+    @UI.identification: [{ position: 50 , importance: #HIGH }]
+    @UI :{lineItem: [{ position: 50 , importance: #HIGH }]}
+    @EndUserText.label : 'Employee City'
+    EmployeeCity;  
+    
+    @UI.identification: [{ position: 60 , importance: #HIGH  }]
+    @UI :{lineItem: [{ position: 60 , importance: #HIGH }]}
+    @EndUserText.label : 'Employee DOB'
+    EmployeeDob;  
+        
+    @UI.identification: [{ position: 70 , importance: #HIGH  }]
+    @UI :{lineItem: [{ position: 70 , importance: #HIGH }]}
+    @EndUserText.label : 'Employee DOJ'
+    EmployeeDoj;
+    
+    @UI.identification: [{ position: 80 , importance: #HIGH  }]
+    @UI :{lineItem: [{ position: 80 , importance: #HIGH }]}
+    @EndUserText.label : 'Employee Status'
+    EmployeeStatus;
+    
+    @UI.identification: [{ position: 90 , importance: #HIGH  }]
+    @UI :{lineItem: [{ position: 90 , importance: #HIGH }]}
+    @EndUserText.label : 'Employee Username'
+    EmployeeUsername;
+    
+    @UI.identification: [{ position: 100 , importance: #HIGH  }]
+    @UI :{lineItem: [{ position: 100 , importance: #HIGH }]}
+    @EndUserText.label : 'Employee Designation'
+    EmployeeDesignation;
+    
+}

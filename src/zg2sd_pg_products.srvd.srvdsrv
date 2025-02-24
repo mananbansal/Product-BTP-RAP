@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition of Products Table'
+define service ZG2SD_PG_PRODUCTS {
+  expose ZG2C_PG_PRODUCTS;
+}

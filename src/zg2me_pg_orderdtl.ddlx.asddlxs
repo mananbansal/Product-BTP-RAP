@@ -1,0 +1,78 @@
+@Metadata.layer: #CORE
+annotate view ZG2C_PG_ORDERDTL
+    with 
+{
+    @UI.facet: [{ 
+    id : 'Orddtl',
+    type : #IDENTIFICATION_REFERENCE,
+    label : 'Order Detail Info',
+    position : 10
+ }]
+    @UI.identification: [{ position: 10 , importance: #HIGH }]
+    @UI :{lineItem: [{ position: 10 , importance: #HIGH}]}
+    @UI:{selectionField: [{ position : 10}]}
+    @EndUserText.label : 'Order Id'
+    OrderId;
+ 
+    @UI.identification: [{ position: 20 , importance: #HIGH }]
+    @UI :{lineItem: [{ position: 20 , importance: #HIGH }]}
+    @EndUserText.label : 'Product Id'
+    @Consumption.valueHelpDefinition: [{ entity:{name: 'ZG2C_PG_ORDPRD', element: 'ProductId' },
+    additionalBinding: [
+            {
+                localElement: 'OrderId',
+                element: 'OrderId'
+            }
+        ] } ]
+    ProductId;
+    
+    @UI.identification: [{ position: 30 , importance: #HIGH }]
+    @UI :{lineItem: [{ position: 30 , importance: #HIGH }]}
+    @UI:{selectionField: [{ position : 30 }]}
+    @EndUserText.label : 'Unit'
+    @Consumption.valueHelpDefinition: [{ entity:{name: 'I_UnitOfMeasureStdVH' , element: 'UnitOfMeasure' } } ]
+    Unit;
+    
+    @UI.identification: [{ position: 40 , importance: #HIGH  }]
+    @UI :{lineItem: [{ position: 40 , importance: #HIGH }]}
+    @EndUserText.label : 'Ordered Quantity'
+    OrderedQuantity;
+    
+    @UI.identification: [{ position: 50 , importance: #HIGH }]
+    @UI :{lineItem: [{ position: 50 , importance: #HIGH }]}
+    @EndUserText.label : 'Delivery Address'
+    DeliveryAddress;  
+    
+    @UI.identification: [{ position: 60 , importance: #HIGH  }]
+    @UI :{lineItem: [{ position: 60 , importance: #HIGH }]}
+    @EndUserText.label : 'Delivery City'
+    DeliveryCity;  
+        
+    @UI.identification: [{ position: 70 , importance: #HIGH  }]
+    @UI :{lineItem: [{ position: 70 , importance: #HIGH }]}
+    @EndUserText.label : 'Delivery Pincode'
+    DeliveryPincode;
+    
+    @UI.identification: [{ position: 80 , importance: #HIGH  }]
+    @UI :{lineItem: [{ position: 80 , importance: #HIGH }]}
+    @EndUserText.label : 'Delivery State'
+    DeliveryState;
+    
+    @UI.identification: [{ position: 90 , importance: #HIGH  }]
+    @UI :{lineItem: [{ position: 90 , importance: #HIGH }]}
+    @EndUserText.label : 'Delivery Country'
+    @Consumption.valueHelpDefinition: [{ entity:{name: 'I_CountryVH' , element: 'Country' } } ]
+    DeliveryCountry;
+    
+    @UI.identification: [{ position: 100 , importance: #HIGH  }]
+    @UI :{lineItem: [{ position: 100 , importance: #HIGH }]}
+    @EndUserText.label : 'Estimated Delivery Date'
+    DeliveryDate;
+    
+//    @UI.identification: [{ position: 80 , importance: #HIGH  }]
+//    @UI :{lineItem: [{ position: 80 , importance: #HIGH }]}
+//    @EndUserText.label : 'Delivered Date'
+//    DeliveredDate;
+    
+    
+}

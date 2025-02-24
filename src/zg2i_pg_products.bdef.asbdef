@@ -1,0 +1,40 @@
+managed implementation in class zbp_g2i_pg_products unique;
+strict ( 2 );
+
+define behavior for ZG2I_PG_PRODUCTS //alias <alias_name>
+persistent table zg2_pg_products
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field ( mandatory ) ProductId;
+
+  mapping for zg2_pg_products
+  {
+    ProductId = product_id;
+    ProductName = product_name;
+    ProductDescription = product_description;
+    ProductCategory = product_category;
+    ProductType = product_type;
+    ProductBrand = product_brand;
+    ProductModel = product_model;
+    Currency = currency;
+    UnitRate = unit_rate;
+    Unit = unit;
+    SaleCode = sale_code;
+    TaxCode = tax_code;
+    Validity = validity;
+    ProductStatus = product_status;
+    AmcStatus = amc_status;
+    AmcCode = amc_code;
+    LocalLastChanged = local_last_changed;
+    LastChanged = last_changed;
+    CreatedOn = created_on;
+    CreationUser = creation_user;
+    ChangedUser = changed_user;
+  }
+
+}

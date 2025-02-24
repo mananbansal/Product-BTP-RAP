@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service definition of Company Table'
+define service ZG2SD_PG_COMPANY {
+  expose ZG2C_PG_COMPANY;
+  expose ZG2C_PG_EMPLOYEE;
+}

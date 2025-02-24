@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service definition of Order Table'
+define service ZG2SD_PG_ORDER {
+  expose ZG2C_PG_ORDER;
+  expose ZG2C_PG_ORDPRD;
+  expose ZG2C_PG_ORDERDTL;
+}

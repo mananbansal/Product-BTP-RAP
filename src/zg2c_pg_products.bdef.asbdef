@@ -1,0 +1,9 @@
+projection;
+strict ( 2 );
+
+define behavior for ZG2C_PG_PRODUCTS //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+}

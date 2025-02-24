@@ -1,0 +1,19 @@
+projection;
+//strict ( 2 );
+
+define behavior for ZG2C_PG_COMPANY //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _emp { create; }
+}
+
+define behavior for ZG2C_PG_EMPLOYEE //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _cmp;
+}

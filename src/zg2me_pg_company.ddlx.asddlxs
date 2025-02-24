@@ -1,0 +1,69 @@
+@Metadata.layer: #CORE
+@UI:{ 
+    headerInfo :{ 
+        typeName: 'Header',
+        typeNamePlural: 'Headers',
+        title:{ 
+            type: #STANDARD,
+            label: 'Company',
+            value: 'CompanyName'
+        }
+    }
+}
+@Search.searchable: true
+annotate view ZG2C_PG_COMPANY
+    with 
+{
+    @UI.facet: [{ 
+    id : 'Company',
+    purpose: #STANDARD,
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Company Info',
+    position: 10
+ },
+ { 
+    id : 'Employee',
+    type : #LINEITEM_REFERENCE,
+    label : 'Employees Info',
+    position : 20,
+    targetElement: '_emp'
+ }]
+    @UI.identification: [{ position: 10 , importance: #HIGH }]
+    @UI :{lineItem: [{ position: 10 , importance: #HIGH}]}
+    @UI:{selectionField: [{ position : 10}]}
+    @EndUserText.label : 'Company Code'
+    @Search.defaultSearchElement: true
+    CompanyCode;
+ 
+    @UI.identification: [{ position: 20 , importance: #HIGH }]
+    @UI :{lineItem: [{ position: 20 , importance: #HIGH }]}
+    @EndUserText.label : 'Company Name'
+    CompanyName;
+    
+    @UI.identification: [{ position: 30 , importance: #HIGH }]
+    @UI :{lineItem: [{ position: 30 , importance: #HIGH }]}
+    @UI:{selectionField: [{ position : 30 }]}
+    @EndUserText.label : 'Organization Code'
+    OrgCode;
+    
+    @UI.identification: [{ position: 40 , importance: #HIGH  }]
+    @UI :{lineItem: [{ position: 40 , importance: #HIGH }]}
+    @EndUserText.label : 'Country'
+    Country;
+    
+    @UI.identification: [{ position: 50 , importance: #HIGH }]
+    @UI :{lineItem: [{ position: 50 , importance: #HIGH }]}
+    @EndUserText.label : 'Organization State'
+    OrgState;  
+    
+    @UI.identification: [{ position: 60 , importance: #HIGH  }]
+    @UI :{lineItem: [{ position: 60 , importance: #HIGH }]}
+    @EndUserText.label : 'Organization City'
+    OrgCity;  
+        
+    @UI.identification: [{ position: 70 , importance: #HIGH  }]
+    @UI :{lineItem: [{ position: 70 , importance: #HIGH }]}
+    @EndUserText.label : 'Organization Location'
+    OrgLocation;
+    
+}

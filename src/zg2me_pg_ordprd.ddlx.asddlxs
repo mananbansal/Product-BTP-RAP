@@ -1,0 +1,66 @@
+@Metadata.layer: #CORE
+annotate view ZG2C_PG_ORDPRD
+    with 
+{
+    @UI.facet: [{ 
+    id : 'Ordprd',
+    type : #IDENTIFICATION_REFERENCE,
+    label : 'Order Product Info',
+    position : 10
+ }]
+    @UI.identification: [{ position: 10 , importance: #HIGH }]
+    @UI :{lineItem: [{ position: 10 , importance: #HIGH}]}
+    @UI:{selectionField: [{ position : 10}]}
+    @EndUserText.label : 'Order Id'
+    OrderId;
+ 
+    @UI.identification: [{ position: 20 , importance: #HIGH }]
+    @UI :{lineItem: [{ position: 20 , importance: #HIGH }]}
+    @UI:{selectionField: [{ position : 20 }]}
+    @EndUserText.label : 'Product Id'
+    @Consumption.valueHelpDefinition: [{ entity:{name: 'ZG2I_PG_PRODUCTS', element: 'ProductId' } } ]
+    ProductId;
+    
+    @UI.identification: [{ position: 30 , importance: #HIGH }]
+    @UI :{lineItem: [{ position: 30 , importance: #HIGH }]}
+    @UI:{selectionField: [{ position : 30 }]}
+    @EndUserText.label : 'Product Category'
+    ProductCategory;
+    
+    @UI.identification: [{ position: 40 , importance: #HIGH  }]
+    @UI :{lineItem: [{ position: 40 , importance: #HIGH }]}
+    @EndUserText.label : 'Product Type'
+    ProductType;
+    
+    @UI.identification: [{ position: 50 , importance: #HIGH }]
+    @UI :{lineItem: [{ position: 50 , importance: #HIGH }]}
+    @EndUserText.label : 'Product Brand'
+    ProductBrand;  
+    
+    @UI.identification: [{ position: 60 , importance: #HIGH  }]
+    @UI :{lineItem: [{ position: 60 , importance: #HIGH }]}
+    @EndUserText.label : 'Product Model'
+    ProductModel;  
+    
+    @UI.identification: [{ position: 70 , importance: #HIGH  }]
+    @UI :{lineItem: [{ position: 70 , importance: #HIGH }]}
+    @EndUserText.label : 'Product Name'
+    ProductName; 
+    
+    @UI.identification: [{ position: 80 , importance: #HIGH  }]
+    @UI :{lineItem: [{ position: 80 , importance: #HIGH }]}
+    @EndUserText.label : 'Product Description'
+    ProductDescription; 
+        
+    @UI.identification: [{ position: 90 , importance: #HIGH  }]
+    @UI :{lineItem: [{ position: 90 , importance: #HIGH }]}
+    @EndUserText.label : 'Currency'
+    Currency;
+    
+    @UI.identification: [{ position: 100 , importance: #HIGH  }]
+    @UI :{lineItem: [{ position: 100 , importance: #HIGH }]}
+    @EndUserText.label : 'Unit Price'
+    UnitPrice;
+    
+    
+}
